@@ -1,5 +1,7 @@
 "use client";
 
+import React from "react";
+
 import { Antonio, Bricolage_Grotesque } from "next/font/google";
 const bricolageGrotesque = Bricolage_Grotesque({
   weight: "400",
