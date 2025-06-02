@@ -3,31 +3,26 @@ import "@/styles/app.scss";
 export const metadata = {
   title: "AVJ Tech & Partners – Coming Soon",
   description: "Join AVJ Tech's waitlist to shape the future of automotive innovation.",
-  siteName: "AVJ Tech",
-  url: "https://www.avjtechnology.com",
-  type: "website",
-
-  icons: {
-    icon: "/favicon.png",
-  },
-
   metadataBase: new URL("https://www.avjtechnology.com"),
   alternates: {
     canonical: "/",
   },
+  icons: {
+    icon: "/favicon.png",
+  },
   openGraph: {
-    images: "/ogimage.png",
+    title: "AVJ Tech & Partners – Coming Soon",
+    description: "Join AVJ Tech's waitlist to shape the future of automotive innovation.",
+    url: "https://www.avjtechnology.com",
+    siteName: "AVJ Tech",
+    type: "website",
+    images: [
+      {
+        url: "/ogimage.png",
+        width: 1200,
+        height: 630,
+        alt: "AVJ Tech Coming Soon",
+      },
+    ],
   },
 };
-
-const AVJApp = ({ children }) => {
-  return (
-    <html lang="en">
-      <body>
-        {children}
-      </body>
-    </html>
-  );
-};
-
-export default AVJApp;
