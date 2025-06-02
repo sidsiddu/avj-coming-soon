@@ -18,8 +18,8 @@ const antonio = Antonio({
 import { motion } from "motion/react";
 import Link from "next/link";
 import Marquee from "react-fast-marquee";
-import Countdown from "./components/Countdown";
-import Ripple from "./components/Ripple";
+import Countdown from "./components/Countdown.js";
+import Ripple from "./components/Ripple.js";
 
 import "@/styles/demo/demo7.scss";
 
