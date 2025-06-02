@@ -1,0 +1,6 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 1, "column": 0}, "map": {"version":3,"sources":["turbopack:///[project]/styles/demo/demo1.scss.css"],"sourcesContent":["html:has(.main-content-1){--primary: #00389a;--primary-shade: #367df4;color:#fff;background-color:var(--primary);background-image:conic-gradient(from var(--angle), var(--primary-shade), var(--primary), var(--primary-shade));animation:60s animateBG steps(60) infinite}.group number-flow-react{position:relative}.group number-flow-react::part(right){font-size:10px;position:absolute;bottom:-20px;left:50%;transform:translateX(-50%)}@keyframes animateBG{to{--angle: 360deg}}@property --angle{syntax:\"<angle>\";initial-value:0deg;inherits:false}.animate-spin-slow{animation:spin-slow 60s linear infinite reverse}@keyframes spin-slow{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}"],"names":[],"mappings":"AAAA;;;;;;;;;AAA2Q;;;;AAA2C;;;;;;;;AAAwH;;;;;;AAAyC;;;;;;AAAqE;;;;AAAmE"}}]
+}

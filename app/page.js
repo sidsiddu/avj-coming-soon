@@ -1,130 +1,123 @@
-"use client"
+"use client";
 
-import Link from "next/link";
-
-import "@/styles/demo/demo1.scss";
-import { Bricolage_Grotesque } from "next/font/google";
+import { Antonio, Bricolage_Grotesque } from "next/font/google";
 const bricolageGrotesque = Bricolage_Grotesque({
   weight: "400",
   display: "swap",
   subsets: ["latin"],
+  variable: '--font-bricolage-grotesque',
 });
 
-import Image from "next/image";
-import Aurora from "@/components/Aurora";
+const antonio = Antonio({
+  weight: ["400"],
+  display: "swap",
+  subsets: ["latin"],
+  variable: '--font-antonio',
+});
 
-const SlinkApp = () => {
+import { motion } from "motion/react";
+import Link from "next/link";
+import Marquee from "react-fast-marquee";
+import Countdown from "./components/Countdown";
+import Ripple from "./components/Ripple";
+
+import "@/styles/demo/demo7.scss";
+
+export default function Home() {
   return (
-    <main className={`${bricolageGrotesque.className} main-content px-8 min-h-screen text-white relative z-10`}>
-      <div className="fixed w-full start-0 top-0 pointer-events-none opacity-70">
-        <Aurora
-          colorStops={["#00d8fe", "#7cff67", "#00d8fe"]}
-          blend={0.5}
-          amplitude={0.5}
-          speed={0.6}
-        />
+    <main className={`main-content-7 ${bricolageGrotesque.className} w-full overflow-clip`}>
+      <motion.div
+        initial={{ y: "-100px" }}
+        animate={{ y: 0 }}
+        transition={{ duration: 0.4, delay: 0.4 }}
+        className={`${bricolageGrotesque.className} capitalize sticky text-xs sm:text-sm w-full max-w-full left-0 top-0 overflow-clip z-50`}
+      >
+        <Marquee direction="right" className="py-1 bg-[var(--primary)] text-white">
+          {Array.from({ length: 30 }, (_, i) => (
+            <div key={i} className="mx-2.5 md:mx-4">
+              <span className="italic">Stay TUNED</span> <span className="px-2">—</span> Coming SOON
+            </div>
+          ))}
+        </Marquee>
+      </motion.div>
+
+      <div className="relative flex h-[80vh] w-full flex-col items-center justify-center">
+        <div className={`-mt-16 text-center ${antonio.variable} ${bricolageGrotesque.variable}`}>
+          <motion.p
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.3 }}
+          >
+            <Link href="/" className="text-2xl font-bold mb-12 inline-block">AVJ Tech & Partners</Link>
+          </motion.p>
+
+          <Countdown date={`2025-07-13T00:00:00`} />
+        </div>
+
+        <Ripple />
       </div>
 
-      {/* Header */}
-      <header className="text-center py-8 relative z-10">
-        <Link className="font-bold text-3xl" href="/" aria-label="Logo">Slink</Link>
-      </header>
+      <section className="-mt-20 pb-16 px-6">
+        <motion.p
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.3, delay: 0.5 }}
+          className="text-xl sm:text-3xl mb-6 sm:mb-8 leading-snug max-w-[550px] mx-auto text-balance text-center"
+        >Join AVJ Tech's waitlist to shape the future of automotive innovation.</motion.p>
 
-      <section className="relative py-10 md:py-16 text-white z-10">
-        <div className="mx-auto max-w-7xl px-6 md:px-12">
-          <div className="text-center sm:mx-auto sm:w-10/12 lg:mr-auto lg:mt-0 lg:w-4/5">
-            <Link href="/" className="rounded-lg mx-auto flex w-fit items-center gap-2 border border-white/15 p-1 pr-3">
-              <span className="bg-white/15 rounded px-2 py-1 text-xs">New</span>
-              <span className="text-sm">Skyrocket Your Next Launch</span>
-              <span className="bg-white/20 block h-4 w-px"></span>
+        <motion.form
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.3, delay: 0.6 }}
+          action="#" 
+          className="max-w-96 mx-auto border-2 border-transparent focus-within:border-[var(--primary)] rounded-[10px] group shadow-2xl"
+        >
+          <div className="flex items-center">
+            <input
+              className="peer text-sm sm:text-base bg-white text-black block w-full h-12 ps-4 focus:outline-none focus:bg-white focus:text-black transition duration-200 focus:placeholder:text-black/50 rounded-s-lg"
+              type="email"
+              name="email"
+              id="email"
+              placeholder="eg: alex@email.com"
+              required
+            />
 
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m7 7 10 10"/><path d="M17 7v10H7"/></svg>
-            </Link>
-
-            <h1 className="mt-8 text-3xl font-semibold md:text-5xl xl:text-5xl xl:[line-height:1.25]">
-              Grab 10 Irresistible <br /> Coming Soon template
-            </h1>
-            <p className="mx-auto my-8 text-balance max-w-[500px] opacity-85">Elevate your next big reveal with this premium Coming Soon templates! Sleek and ready to launch.</p>
-
-            <Link href="/" className="inline-grid place-items-center group relative rounded-full bg-gradient-to-b from-[#444] to-[#222] py-3 px-7 text-white">
-              <span className="relative inline-flex overflow-hidden">
-                <div className="translate-y-0 skew-y-0 transition duration-500 group-hover:-translate-y-[120%] group-hover:skew-y-12 inline-flex gap-3">
-                  <svg width="16" height="20" viewBox="0 0 46 58" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M41.9998 41.64L25.8698 43.37C25.5698 43.4 25.4198 43.03 25.6598 42.84L41.4398 30.55C42.4598 29.71 43.1198 28.41 42.8398 27.01C42.5598 24.87 40.7898 23.47 38.5498 23.75L21.3998 26.26C21.0998 26.3 20.9398 25.92 21.1798 25.73L38.1798 12.75C41.5298 10.14 41.8098 5.01999 38.7398 2.03999C35.9498 -0.750012 31.4698 -0.660012 28.6798 2.12999L1.28975 30C0.269752 31.12 -0.200248 32.61 0.079752 34.19C0.549752 36.71 3.05975 38.38 5.57975 37.92L20.3498 34.91C20.6698 34.84 20.8398 35.27 20.5698 35.45L4.18975 45.94C2.13975 47.24 1.20975 49.57 1.85975 51.9C2.50975 54.97 5.58975 56.74 8.56975 56L33.0598 49.97C33.3398 49.9 33.5398 50.22 33.3598 50.44L29.5398 55.16C28.5198 56.46 30.1898 58.23 31.5898 57.21L44.1698 46.87C46.4098 45.01 44.9198 41.37 42.0298 41.65L41.9998 41.64Z" fill="#87E64B"/></svg>
-                  BUY NOW
-                </div>
-                <div className="absolute translate-y-[150%] skew-y-12 transition duration-500 group-hover:translate-y-0 group-hover:skew-y-0 inline-flex gap-3">
-                  <svg width="16" height="20" viewBox="0 0 46 58" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M41.9998 41.64L25.8698 43.37C25.5698 43.4 25.4198 43.03 25.6598 42.84L41.4398 30.55C42.4598 29.71 43.1198 28.41 42.8398 27.01C42.5598 24.87 40.7898 23.47 38.5498 23.75L21.3998 26.26C21.0998 26.3 20.9398 25.92 21.1798 25.73L38.1798 12.75C41.5298 10.14 41.8098 5.01999 38.7398 2.03999C35.9498 -0.750012 31.4698 -0.660012 28.6798 2.12999L1.28975 30C0.269752 31.12 -0.200248 32.61 0.079752 34.19C0.549752 36.71 3.05975 38.38 5.57975 37.92L20.3498 34.91C20.6698 34.84 20.8398 35.27 20.5698 35.45L4.18975 45.94C2.13975 47.24 1.20975 49.57 1.85975 51.9C2.50975 54.97 5.58975 56.74 8.56975 56L33.0598 49.97C33.3398 49.9 33.5398 50.22 33.3598 50.44L29.5398 55.16C28.5198 56.46 30.1898 58.23 31.5898 57.21L44.1698 46.87C46.4098 45.01 44.9198 41.37 42.0298 41.65L41.9998 41.64Z" fill="#87E64B"/></svg>
-                  BUY NOW
-                </div>
-              </span>
-            </Link>
+            <button className="flex items-center justify-center gap-2 cursor-pointer text-sm sm:text-base bg-white text-black hover:opacity-50 peer-focus:text-[var(--primary)] px-5 flex-1 h-12 w-full transition duration-200 focus:outline-none focus:shadow-none relative after:absolute after:content-[''] after:h-4 after:w-px after:left-0 after:top-[calc(50%-8px)] after:bg-black/25 rounded-e-lg" type="submit" aria-label="Submit notify email">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" strokeWidth="2.5" stroke="currentcolor" fill="none" strokeLinecap="round" strokeLinejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M8 7a4 4 0 108 0A4 4 0 008 7"></path><path d="M16 19h6"></path><path d="M19 16v6"></path><path d="M6 21v-2a4 4 0 014-4h4"></path></svg>
+              Join
+            </button>
           </div>
-        </div>
+        </motion.form>
       </section>
 
-      <section className="py-16 relative z-10">
-        <div className="grid sm:grid-cols-2 gap-x-6 gap-y-10 max-w-[1000px] mx-auto">
-          <Link className="text-center rounded-lg overflow-clip shadow-2xl shadow-white/15 transition-all hover:-translate-y-2" href="/demo-1">
-            <Image src="/previews/01.png" height={431} width={700} alt="coming soon template" />
-            <p className="bg-white/15 py-3">Demo 01</p>
-          </Link>
-
-          <Link className="text-center rounded-lg overflow-clip shadow-2xl shadow-white/15 transition-all hover:-translate-y-2" href="/demo-2">
-            <Image src="/previews/02.png" height={431} width={700} alt="coming soon template" />
-            <p className="bg-white/15 py-3">Demo 02</p>
-          </Link>
-
-          <Link className="text-center rounded-lg overflow-clip shadow-2xl shadow-white/15 transition-all hover:-translate-y-2" href="/demo-3">
-            <Image src="/previews/03.png" height={431} width={700} alt="coming soon template" />
-            <p className="bg-white/15 py-3">Demo 03</p>
-          </Link>
-
-          <Link className="text-center rounded-lg overflow-clip shadow-2xl shadow-white/15 transition-all hover:-translate-y-2" href="/demo-4">
-            <Image src="/previews/04.png" height={431} width={700} alt="coming soon template" />
-            <p className="bg-white/15 py-3">Demo 04</p>
-          </Link>
-
-          <Link className="text-center rounded-lg overflow-clip shadow-2xl shadow-white/15 transition-all hover:-translate-y-2" href="/demo-5">
-            <Image src="/previews/05.png" height={431} width={700} alt="coming soon template" />
-            <p className="bg-white/15 py-3">Demo 05</p>
-          </Link>
-
-          <Link className="text-center rounded-lg overflow-clip shadow-2xl shadow-white/15 transition-all hover:-translate-y-2" href="/demo-6">
-            <Image src="/previews/06.png" height={431} width={700} alt="coming soon template" />
-            <p className="bg-white/15 py-3">Demo 06</p>
-          </Link>
-
-          <Link className="text-center rounded-lg overflow-clip shadow-2xl shadow-white/15 transition-all hover:-translate-y-2" href="/demo-7">
-            <Image src="/previews/07.png" height={431} width={700} alt="coming soon template" />
-            <p className="bg-white/15 py-3">Demo 07</p>
-          </Link>
-
-          <Link className="text-center rounded-lg overflow-clip shadow-2xl shadow-white/15 transition-all hover:-translate-y-2" href="/demo-8">
-            <Image src="/previews/08.png" height={431} width={700} alt="coming soon template" />
-            <p className="bg-white/15 py-3">Demo 08</p>
-          </Link>
-
-          <Link className="text-center rounded-lg overflow-clip shadow-2xl shadow-white/15 transition-all hover:-translate-y-2" href="/demo-9">
-            <Image src="/previews/09.png" height={431} width={700} alt="coming soon template" />
-            <p className="bg-white/15 py-3">Demo 09</p>
-          </Link>
-
-          <Link className="text-center rounded-lg overflow-clip shadow-2xl shadow-white/15 transition-all hover:-translate-y-2" href="/demo-10">
-            <Image src="/previews/10.png" height={431} width={700} alt="coming soon template" />
-            <p className="bg-white/15 py-3">Demo 10</p>
-          </Link>
-
-        </div>
-      </section>
-
-      {/* footer */}
-      <footer className="sm:flex justify-between items-center py-8 relative z-10">
-        <div className="w-full text-center">
-          <span className="text-sm text-balance inline-block">&copy; {new Date().getFullYear()} by Slink — Developed by <Link className="relative after:absolute after:content-[''] after:w-full after:h-[1px] after:bg-white after:transition-all after:duration-300 hover:after:w-0 after:left-0 hover:after:left-auto hover:after:right-0 after:bottom-0" href="https://themeforest.net/user/platol/portfolio" aria-label="Slink">Platol</Link></span>
+      <footer className="px-8 py-8 mt-1">
+        <div className="container mx-auto">
+          <div className="flex md:flex-row flex-col justify-between items-center">
+            <div className="md:w-1/2 text-center md:text-start order-2 md:order-1">
+              <span className="text-sm text-balance inline-block">&copy; {new Date().getFullYear()} by AVJ TECH <Link className="relative after:absolute after:content-[''] after:w-full after:h-[1px] after:bg-black after:transition-all after:duration-300 hover:after:w-0 after:left-0 hover:after:left-auto hover:after:right-0 after:bottom-0" href="https://www.avjtechnology.com/demo-7" aria-label="Slink">AVJ CORP</Link></span>
+            </div>
+            <div className="md:w-1/2 mb-6 md:mb-0 order-1 md:order-2">
+              <ul className="flex items-center justify-center md:justify-end flex-wrap gap-4 [&_li]:leading-[0] [&_a]:bg-black/4 [&_a]:rounded-lg">
+                <li>
+                  <Link className="hover:scale-105 transition duration-200 inline-block p-3" href="#">
+                    <svg className="h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor"><path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"/></svg>
+                  </Link>
+                </li>
+                <li>
+                  <Link className="hover:scale-105 transition duration-200 inline-block p-3" href="#">
+                    <svg className="h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor"><path d="M512 256C512 114.6 397.4 0 256 0S0 114.6 0 256C0 376 82.7 476.8 194.2 504.5V334.2H141.4V256h52.8V222.3c0-87.1 39.4-127.5 125-127.5c16.2 0 44.2 3.2 55.7 6.4V172c-6-.6-16.5-1-29.6-1c-42 0-58.2 15.9-58.2 57.2V256h83.6l-14.4 78.2H287V510.1C413.8 494.8 512 386.9 512 256h0z"/></svg>
+                  </Link>
+                </li>
+                <li>
+                  <Link className="hover:scale-105 transition duration-200 inline-block p-3" href="#">
+                    <svg className="h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" fill="currentColor"><path d="M100.3 448H7.4V148.9h92.9zM53.8 108.1C24.1 108.1 0 83.5 0 53.8a53.8 53.8 0 0 1 107.6 0c0 29.7-24.1 54.3-53.8 54.3zM447.9 448h-92.7V302.4c0-34.7-.7-79.2-48.3-79.2-48.3 0-55.7 37.7-55.7 76.7V448h-92.8V148.9h89.1v40.8h1.3c12.4-23.5 42.7-48.3 87.9-48.3 94 0 111.3 61.9 111.3 142.3V448z"/></svg>
+                  </Link>
+                </li>
+              </ul>
+            </div>
+          </div>
         </div>
       </footer>
     </main>
   );
 }
-
-export default SlinkApp;

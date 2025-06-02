@@ -1,0 +1,49 @@
+/* [project]/styles/demo/demo1.scss.css [app-client] (css) */
+html:has(.main-content-1) {
+  --primary: #00389a;
+  --primary-shade: #367df4;
+  color: #fff;
+  background-color: var(--primary);
+  background-image: conic-gradient(from var(--angle), var(--primary-shade), var(--primary), var(--primary-shade));
+  animation: 60s steps(60, end) infinite animateBG;
+}
+
+.group number-flow-react {
+  position: relative;
+}
+
+.group number-flow-react::part(right) {
+  font-size: 10px;
+  position: absolute;
+  bottom: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+@keyframes animateBG {
+  to {
+    --angle: 360deg;
+  }
+}
+
+@property --angle {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 0deg;
+}
+
+.animate-spin-slow {
+  animation: 60s linear infinite reverse spin-slow;
+}
+
+@keyframes spin-slow {
+  from {
+    transform: rotate(0);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/*# sourceMappingURL=styles_demo_demo1_scss_b52d8e88.css.map*/

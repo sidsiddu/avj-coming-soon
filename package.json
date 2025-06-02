@@ -11,11 +11,11 @@
   "dependencies": {
     "@number-flow/react": "^0.5.8",
     "motion": "^12.5.0",
-    "next": "15.2.3",
+    "next": "^15.2.3",
     "ogl": "^1.0.11",
-    "react": "^19.0.0",
+    "react": "^19.1.0",
     "react-countdown": "^2.3.6",
-    "react-dom": "^19.0.0",
+    "react-dom": "^19.1.0",
     "react-fast-marquee": "^1.6.5",
     "sass": "^1.86.0",
     "typescript": "^5.8.2"
