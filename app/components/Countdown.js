@@ -2,30 +2,29 @@
 
 import NumberFlow, { NumberFlowGroup } from '@number-flow/react';
 import { motion } from "motion/react";
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 
 const Countdown = ({ date }) => {
-  const calculateTimeLeft = () => {
-    const targetDate = new Date(date).getTime()
-    const now = new Date().getTime()
-    const difference = Math.max(0, Math.floor((targetDate - now) / 1000))
-    return difference
-  }
+  const calculateTimeLeft = useCallback(() => {
+    const targetDate = new Date(date).getTime();
+    const now = new Date().getTime();
+    const difference = Math.max(0, Math.floor((targetDate - now) / 1000));
+    return difference;
+  }, [date]);
 
-  const [seconds, setSeconds] = useState(calculateTimeLeft())
+  const [seconds, setSeconds] = useState(calculateTimeLeft());
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setSeconds(calculateTimeLeft())
-    }, 1000)
+      setSeconds(calculateTimeLeft());
+    }, 1000);
+    return () => clearInterval(interval);
+  }, [calculateTimeLeft]);
 
-    return () => clearInterval(interval)
-  }, [date])
-
-  const days = Math.floor(seconds / 86400)
-  const hh = Math.floor((seconds % 86400) / 3600) || 0
-  const mm = Math.floor((seconds % 3600) / 60) || 0
-  const ss = seconds % 60 || 0
+  const days = Math.floor(seconds / 86400);
+  const hh = Math.floor((seconds % 86400) / 3600) || 0;
+  const mm = Math.floor((seconds % 3600) / 60) || 0;
+  const ss = seconds % 60 || 0;
 
   return (
     <>
@@ -38,7 +37,7 @@ const Countdown = ({ date }) => {
         >
           We are almost ready!
         </motion.p>
-        
+
         <motion.p
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
@@ -91,7 +90,7 @@ const Countdown = ({ date }) => {
         </motion.div>
       </NumberFlowGroup>
     </>
-  )
-}
+  );
+};
 
-export default Countdown
+export default Countdown;
