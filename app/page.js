@@ -67,7 +67,8 @@ export default function Home() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.3, delay: 0.5 }}
           className="text-xl sm:text-3xl mb-6 sm:mb-8 leading-snug max-w-[550px] mx-auto text-balance text-center"
-        >Join AVJ Tech's waitlist to shape the future of automotive innovation.</motion.p>
+        >Join AVJ Tech&apos;s waitlist to shape the future of automotive innovation.</motion.p>
+
 
         <motion.form
           initial={{ opacity: 0, y: 10 }}
@@ -98,7 +99,7 @@ export default function Home() {
         <div className="container mx-auto">
           <div className="flex md:flex-row flex-col justify-between items-center">
             <div className="md:w-1/2 text-center md:text-start order-2 md:order-1">
-              <span className="text-sm text-balance inline-block">&copy; {new Date().getFullYear()} by AVJ TECH <Link className="relative after:absolute after:content-[''] after:w-full after:h-[1px] after:bg-black after:transition-all after:duration-300 hover:after:w-0 after:left-0 hover:after:left-auto hover:after:right-0 after:bottom-0" href="https://www.avjtechnology.com/demo-7" aria-label="Slink">AVJ CORP</Link></span>
+              <span className="text-sm text-balance inline-block">&copy; {new Date().getFullYear()} by AVJ TECH <Link className="relative after:absolute after:content-[''] after:w-full after:h-[1px] after:bg-black after:transition-all after:duration-300 hover:after:w-0 after:left-0 hover:after:left-auto hover:after:right-0 after:bottom-0" href="https://www.avjtechnology.com" aria-label="Slink">AVJ CORP</Link></span>
             </div>
             <div className="md:w-1/2 mb-6 md:mb-0 order-1 md:order-2">
               <ul className="flex items-center justify-center md:justify-end flex-wrap gap-4 [&_li]:leading-[0] [&_a]:bg-black/4 [&_a]:rounded-lg">
