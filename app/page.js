@@ -1,5 +1,7 @@
 "use client";
 
+console.log("Vercel hotfix deploy");
+
 import React from "react";
 
 import { Antonio, Bricolage_Grotesque } from "next/font/google";
